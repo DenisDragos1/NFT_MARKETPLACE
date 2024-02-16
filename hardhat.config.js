@@ -1,8 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
 
 const NEXT_PUBLIC_POLYGON_MUMBAI_RPC =
-  process.env.NEXT_PUBLIC_POLYGON_MUMBAI_RPC;
-const NEXT_PUBLIC_PRIVATE_KEY = process.env.NEXT_PUBLIC_PRIVATE_KEY;
+  "https://polygon-mumbai.g.alchemy.com/v2/OCLtW5mlcbK9Y552LCV70HXW57hwDnC-";
+const NEXT_PUBLIC_PRIVATE_KEY = "47c42ec62c8479dad6567ad2fe7743c845b7f6f67a9976baf1862e0439c0ec8c";
 /** @type import('hardhat/config').HardhatUserConfig */
 
 module.exports = {
