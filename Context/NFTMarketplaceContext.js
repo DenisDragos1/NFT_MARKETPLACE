@@ -104,6 +104,62 @@ export const NFTMarketplaceProvider = ({ children }) => {
     }
   };
 
+  //---UPLOAD TO IPFS FUNCTION
+  const uploadToPinata = async (file) => {
+    if (file) {
+      try {
+        const formData = new FormData();
+        formData.append("file", file);
+
+        const response = await axios({
+          method: "post",
+          url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+          data: formData,
+          headers: {
+            pinata_api_key: process.env.PINATA_API_KEY,
+            pinata_secret_api_key: process.env.PINATA_SECRET_API_KEY,
+            "Content-Type": "multipart/form-data",
+          },
+        });
+        const ImgHash = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+
+        return ImgHash;
+      } catch (error) {
+        console.log("Unable to upload image to Pinata");
+      }
+    }
+  };
+
+  //---CREATENFT FUNCTION
+  const createNFT = async (name, price, image, description, router) => {
+    if (!name || !description || !price || !image)
+      return setError("Data Is Missing"), setOpenError(true);
+
+    const data = JSON.stringify({ name, description, image });
+
+    try {
+      const response = await axios({
+        method: "POST",
+        url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
+        data: data,
+        headers: {
+          pinata_api_key: process.env.PINATA_API_KEY,
+          pinata_secret_api_key: process.env.PINATA_SECRET_API_KEY,
+          "Content-Type": "application/json",
+        },
+      });
+
+      const url = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+      console.log(url);
+
+      await createSale(url, price);
+      router.push("/searchPage");
+    } catch (error) {
+      setError("Error while creating NFT");
+      setOpenError(true);
+    }
+  };
+
 
   //--- createSale FUNCTION
   const createSale = async (url, formInputPrice, isReselling, id) => {
