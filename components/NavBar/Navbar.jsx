@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 //INTERNAL IMPORT
-import Style from "./Navvbar.css";
+import Style from "./Navbar.module.css";
 import { Discover, HelpCenter, Notification, Profile, SideBar } from "./index";
 import { Button, Error } from "../componentsindex";
 

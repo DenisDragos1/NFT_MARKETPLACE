@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import { DiJqueryLogo } from "react-icons/di";
 import {
   TiSocialFacebook,
@@ -13,7 +13,7 @@ import {
 import { RiSendPlaneFill } from "react-icons/ri";
 
 //INTERNAL IMPORT
-import Style from "./Footer.css";
+import Style from "./Footer.module.css";
 import { Discover, HelpCenter } from "../NavBar/index";
 
 const Footer = () => {
