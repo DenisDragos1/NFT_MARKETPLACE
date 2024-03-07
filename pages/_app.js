@@ -1,10 +1,17 @@
-import '../styles/globals.css';
+import "../styles/globals.css";
 
-import { NavBar } from '../components/componentsindex';
+//INTRNAL IMPORT
+import { NavBar, Footer } from "../components/componentsindex";
+import { NFTMarketplaceProvider } from "../Context/NFTMarketplaceContext";
 
-export default function App({ Component, pageProps }) {
-<div>
-  <NavBar/>
- <Component {...pageProps} />;
- </div>
-}
+const MyApp = ({ Component, pageProps }) => (
+  <div>
+    <NFTMarketplaceProvider>
+      <NavBar />
+      <Component {...pageProps} />
+      <Footer />
+    </NFTMarketplaceProvider>
+  </div>
+);
+
+export default MyApp;
