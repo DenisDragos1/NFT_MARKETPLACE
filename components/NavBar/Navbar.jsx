@@ -9,9 +9,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 //INTERNAL IMPORT
-import Style from "./Navbar.module.css";
+import Style from "./NavBar.module.css";
 import { Discover, HelpCenter, Notification, Profile, SideBar } from "./index";
 import { Button, Error } from "../componentsindex";
+import images from "../../img";
 
 //IMPORT FROM SMART CONTRACT
 import { NFTMarketplaceContext } from "../../Context/NFTMarketplaceContext";
