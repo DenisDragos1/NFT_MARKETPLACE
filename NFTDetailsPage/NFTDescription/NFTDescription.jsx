@@ -105,6 +105,7 @@ const NFTDescription = ({ nft }) => {
 
   //SMART CONTRACT DATA
   const { buyNFT, currentAccount } = useContext(NFTMarketplaceContext);
+  
 
   return (
     <div className={Style.NFTDescription}>

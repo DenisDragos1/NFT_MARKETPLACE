@@ -116,8 +116,8 @@ export const NFTMarketplaceProvider = ({ children }) => {
           url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
           data: formData,
           headers: {
-            pinata_api_key: process.env.PINATA_API_KEY,
-            pinata_secret_api_key: process.env.PINATA_SECRET_API_KEY,
+            pinata_api_key: '27ded70bfa5dc92743ae',
+            pinata_secret_api_key: 'b6c80d29efcadbaaba60e1380bd23af0b4b8b982e94a32b09186b4f698a1099c',
             "Content-Type": "multipart/form-data",
           },
         });
@@ -143,8 +143,8 @@ export const NFTMarketplaceProvider = ({ children }) => {
         url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
         data: data,
         headers: {
-          pinata_api_key: process.env.PINATA_API_KEY,
-          pinata_secret_api_key: process.env.PINATA_SECRET_API_KEY,
+          pinata_api_key: '27ded70bfa5dc92743ae',
+          pinata_secret_api_key: 'b6c80d29efcadbaaba60e1380bd23af0b4b8b982e94a32b09186b4f698a1099c',
           "Content-Type": "application/json",
         },
       });
@@ -404,6 +404,30 @@ export const NFTMarketplaceProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  //---BID FUNCTION
+const bidForNFT = async (nft, bidAmount) => {
+  try {
+    const contract = await connectingWithSmartContract();
+    const price = ethers.utils.parseUnits(bidAmount.toString(), "ether");
+
+    const transaction = await contract.createBid(nft.tokenId, {
+      value: price,
+    });
+
+    await transaction.wait();
+    router.push("/searchPage");
+  } catch (error) {
+    setError("Error While placing bid");
+    setOpenError(true);
+  }
+};
+
+
+
+
+
+
   return (
     <NFTMarketplaceContext.Provider
       value={{
@@ -426,6 +450,7 @@ export const NFTMarketplaceProvider = ({ children }) => {
         accountBalance,
         transactionCount,
         transactions,
+        bidForNFT,
       }}
     >
       {children}
