@@ -423,11 +423,6 @@ const bidForNFT = async (nft, bidAmount) => {
   }
 };
 
-
-
-
-
-
   return (
     <NFTMarketplaceContext.Provider
       value={{
@@ -450,7 +445,7 @@ const bidForNFT = async (nft, bidAmount) => {
         accountBalance,
         transactionCount,
         transactions,
-        bidForNFT,
+        
       }}
     >
       {children}

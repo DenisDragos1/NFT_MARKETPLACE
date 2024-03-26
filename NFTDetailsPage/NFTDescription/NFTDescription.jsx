@@ -209,7 +209,7 @@ const NFTDescription = ({ nft }) => {
             <p>
               <MdTimer /> <span>Auction ending in:</span>
             </p>
-
+              
             <div className={Style.NFTDescription_box_profile_biding_box_timer}>
               <div
                 className={
@@ -282,8 +282,8 @@ const NFTDescription = ({ nft }) => {
                   classStyle={Style.button}
                 />
               )}
-
-              <Button
+              
+              <Button 
                 icon={<FaPercentage />}
                 btnName="Make offer"
                 handleClick={() => {}}
