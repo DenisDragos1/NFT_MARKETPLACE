@@ -1,7 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 
 const NEXT_PUBLIC_POLYGON_MUMBAI_RPC =
-  "https://polygon-mumbai.g.alchemy.com/v2/OCLtW5mlcbK9Y552LCV70HXW57hwDnC-";
+  "https://sepolia.infura.io/v3/03a349dbb206457ab852d116b1606a6f";
 const NEXT_PUBLIC_PRIVATE_KEY = "47c42ec62c8479dad6567ad2fe7743c845b7f6f67a9976baf1862e0439c0ec8c";
 /** @type import('hardhat/config').HardhatUserConfig */
 
@@ -10,7 +10,7 @@ module.exports = {
   // defaultNetwork: "matic",
   networks: {
     hardhat: {},
-    polygon_mumbai: {
+    sepolia: {
       url: NEXT_PUBLIC_POLYGON_MUMBAI_RPC,
       accounts: [`0x${NEXT_PUBLIC_PRIVATE_KEY}`],
     },

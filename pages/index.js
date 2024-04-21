@@ -36,15 +36,32 @@ const Home = () => {
   const [nfts, setNfts] = useState([]);
   const [nftsCopy, setNftsCopy] = useState([]);
 
+  // useEffect(() => {
+  //  //  if (currentAccount) {
+  //   fetchNFTs().then((items) => {
+  //     console.log(nfts);
+  //     setNfts(items.reverse());
+  //     setNftsCopy(items);
+  //   });
+  //    //}
+  // }, []);
   useEffect(() => {
-    // if (currentAccount) {
     fetchNFTs().then((items) => {
-      console.log(nfts);
-      setNfts(items.reverse());
-      setNftsCopy(items);
+      console.log(items); // Verify the value of items
+      if (Array.isArray(items)) {
+        // Only setNfts if items is a valid array
+        setNfts(items.reverse()); // Reverse the array if it's not empty
+        setNftsCopy(items);
+      } else {
+        console.log("FetchNFTs returned an invalid array:", items);
+        // Optionally handle the case where items is not an array
+      }
+    }).catch((error) => {
+      console.error("Error fetching NFTs:", error);
+      // Optionally handle the fetchNFTs error
     });
-    // }
   }, []);
+  
 
   //CREATOR LIST
 

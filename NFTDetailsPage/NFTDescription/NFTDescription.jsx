@@ -105,8 +105,7 @@ const NFTDescription = ({ nft }) => {
 
   //SMART CONTRACT DATA
   const { buyNFT, currentAccount } = useContext(NFTMarketplaceContext);
-  
-
+ 
   return (
     <div className={Style.NFTDescription}>
       <div className={Style.NFTDescription_box}>
@@ -286,7 +285,10 @@ const NFTDescription = ({ nft }) => {
               <Button 
                 icon={<FaPercentage />}
                 btnName="Make offer"
-                handleClick={() => {}}
+                handleClick={() => router.push(
+                  // `/reSellToken?id=${nft.tokenId}&tokenURI=${nft.tokenURI}&price=${nft.price}`
+                  '/'
+                )}
                 classStyle={Style.button}
               />
             </div>

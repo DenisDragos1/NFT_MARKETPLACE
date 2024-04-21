@@ -3,6 +3,9 @@ import Web3Modal from "web3modal";
 import { ethers } from "ethers";
 import { useRouter } from "next/router";
 import axios from "axios";
+// Import mongoose
+const mongoose = require('mongoose');
+
 
 //INTERNAL  IMPORT
 import {
@@ -129,6 +132,8 @@ export const NFTMarketplaceProvider = ({ children }) => {
       }
     }
   };
+
+
 
   //---CREATENFT FUNCTION
   const createNFT = async (name, price, image, description, router) => {
