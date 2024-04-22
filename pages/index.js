@@ -70,8 +70,8 @@ const Home = () => {
 
   return (
     <div className={Style.homePage}>
-      <HeroSection />
-      <Service />
+      {/* <HeroSection />
+      <Service /> */}
       {/* <BigNFTSilder /> */}
       {/* <Title
         heading="Audio Collection"
@@ -86,10 +86,10 @@ const Home = () => {
 
       <Slider /> */}
       {/* <Collection /> */}
-      <Title
+      {/* <Title
         heading="Featured NFTs"
         paragraph="Discover the most outstanding NFTs in all topics of life."
-      />
+      /> */}
       <Filter />
       {nfts.length == 0 ? <Loader /> : <NFTCard NFTData={nfts} />}
 

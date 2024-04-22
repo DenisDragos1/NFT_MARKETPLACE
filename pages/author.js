@@ -100,7 +100,7 @@ const author = () => {
         nfts={nfts}
         myNFTS={myNFTs}
       />
-      <Title
+      {/* <Title
         heading="Popular Creators"
         paragraph="Click on music icon and enjoy NTF music or audio
 "
@@ -109,9 +109,8 @@ const author = () => {
         {followerArray.map((el, i) => (
           <FollowerTabCard i={i} el={el} />
         ))}
-      </div>
+      </div> */}
 
-      <Brand />
     </div>
   );
 };
