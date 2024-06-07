@@ -1,15 +1,15 @@
 .NFTCard {
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
   margin-bottom: 10rem;
 }
 
 .NFTCard_box {
   background-color: var(--shadow-light-color);
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 1rem;
 
   display: grid;
@@ -45,7 +45,7 @@
   padding: 0.5rem 1rem;
   color: var(--main-bg-color);
   border-radius: 2rem;
-  margin: 1rem;
+  margin: 0.5rem;
 }
 
 .NFTCard_box_update_left_like {
@@ -118,7 +118,7 @@
 }
 
 .NFTCard_box_update_details_price_box h4 {
-  font-size: 1.3rem;
+  font-size: 0.8rem;
 }
 
 .NFTCard_box_update_details_price_box_box {

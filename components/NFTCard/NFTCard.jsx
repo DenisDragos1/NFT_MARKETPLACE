@@ -44,7 +44,7 @@ const NFTCard = ({ NFTData }) => {
                 className={Style.NFTCard_box_img_img}
               />
             </div>
-
+{/* 
             <div className={Style.NFTCard_box_update}>
               <div className={Style.NFTCard_box_update_left}>
                 <div
@@ -62,19 +62,14 @@ const NFTCard = ({ NFTData }) => {
                 </div>
               </div>
 
-              <div className={Style.NFTCard_box_update_right}>
-                <div className={Style.NFTCard_box_update_right_info}>
-                  <small>Remaining time</small>
-                  <p>3h : 15m : 20s</p>
-                </div>
-              </div>
-            </div>
+            </div> */}
 
             <div className={Style.NFTCard_box_update_details}>
               <div className={Style.NFTCard_box_update_details_price}>
                 <div className={Style.NFTCard_box_update_details_price_box}>
                   <h4>
-                    {el.name} #{el.tokenId}
+                  {el.name}
+                    {/* {el.name} #{el.tokenId} */}
                   </h4>
 
                   <div
@@ -83,7 +78,7 @@ const NFTCard = ({ NFTData }) => {
                     <div
                       className={Style.NFTCard_box_update_details_price_box_bid}
                     >
-                      <small>Current Bid</small>
+                      {/* <small>Current Bid</small> */}
                       <p>{el.price}ETH</p>
                     </div>
                     <div
@@ -91,7 +86,7 @@ const NFTCard = ({ NFTData }) => {
                         Style.NFTCard_box_update_details_price_box_stock
                       }
                     >
-                      <small>61 in stock</small>
+                      {/* <small>61 in stock</small> */}
                     </div>
                   </div>
                 </div>

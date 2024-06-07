@@ -55,33 +55,35 @@ export const NFTMarketplaceProvider = ({ children }) => {
 
   const checkIfWalletConnected = async () => {
     try {
-      if (!window.ethereum)
-        return setOpenError(true), setError("Install MetaMask");
-
+      if (!window.ethereum) {
+        setOpenError(true);
+        setError("Install MetaMask");
+        // Redirecționează utilizatorul către pagina de instalare MetaMask după 2 secunde
+        setTimeout(() => {
+          window.location.href = "https://metamask.io/download.html";
+        }, 2000);
+        return;
+      }
+  
       const accounts = await window.ethereum.request({
         method: "eth_accounts",
       });
-
+  
       if (accounts.length) {
         setCurrentAccount(accounts[0]);
-        // console.log(accounts[0]);
       } else {
-        // setError("No Account Found");
-        // setOpenError(true);
         console.log("No account");
       }
-
+  
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const getBalance = await provider.getBalance(accounts[0]);
       const bal = ethers.utils.formatEther(getBalance);
       setAccountBalance(bal);
     } catch (error) {
-      // setError("Something wrong while connecting to wallet");
-      // setOpenError(true);
       console.log("not connected");
     }
   };
-
+  
   useEffect(() => {
     checkIfWalletConnected();
   }, []);
@@ -108,63 +110,195 @@ export const NFTMarketplaceProvider = ({ children }) => {
   };
 
   //---UPLOAD TO IPFS FUNCTION
-  const uploadToPinata = async (file) => {
-    if (file) {
-      try {
-        const formData = new FormData();
-        formData.append("file", file);
+  // const uploadToPinata = async (file) => {
+  //   if (file) {
+  //     try {
+  //       const formData = new FormData();
+  //       formData.append("file", file);
 
-        const response = await axios({
-          method: "post",
-          url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
-          data: formData,
+  //       const response = await axios({
+  //         method: "post",
+  //         url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+  //         data: formData,
+  //         headers: {
+  //           pinata_api_key: '27ded70bfa5dc92743ae',
+  //           pinata_secret_api_key: 'b6c80d29efcadbaaba60e1380bd23af0b4b8b982e94a32b09186b4f698a1099c',
+  //           "Content-Type": "multipart/form-data",
+  //         },
+  //       });
+  //       const ImgHash = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+
+  //       return ImgHash;
+  //     } catch (error) {
+  //       console.log("Unable to upload image to Pinata");
+  //     }
+  //   }
+  // };
+
+
+
+  // //---CREATENFT FUNCTION
+  // const createNFT = async (name, price, image, description,pdfFile, router) => {
+  //   if (!name || !description || !price || !image || !pdfFile)
+  //     return setError("Data Is Missing"), setOpenError(true);
+
+  //   const data = JSON.stringify({ name, description, image ,pdfFile});
+
+  //   try {
+  //     const response = await axios({
+  //       method: "POST",
+  //       url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
+  //       data: data,
+  //       headers: {
+  //         pinata_api_key: '27ded70bfa5dc92743ae',
+  //         pinata_secret_api_key: 'b6c80d29efcadbaaba60e1380bd23af0b4b8b982e94a32b09186b4f698a1099c',
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+
+  //     const url = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+  //     console.log(url);
+
+  //     await createSale(url, price);
+  //     router.push("/searchPage");
+  //   } catch (error) {
+  //     setError("Error while creating NFT");
+  //     setOpenError(true);
+  //   }
+  // };
+
+
+  // const uploadToPinata = async (file) => {
+  //   if (file) {
+  //     try {
+  //       const formData = new FormData();
+  //       formData.append("file", file);
+  
+  //       const response = await axios({
+  //         method: "post",
+  //         url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+  //         data: formData,
+  //         headers: {
+  //           pinata_api_key: '27ded70bfa5dc92743ae',
+  //           pinata_secret_api_key: 'b6c80d29efcadbaaba60e1380bd23af0b4b8b982e94a32b09186b4f698a1099c',
+  //           "Content-Type": "multipart/form-data",
+  //         },
+  //       });
+  
+  //       const fileHash = response.data.IpfsHash;
+  //       const fileUrl = `https://gateway.pinata.cloud/ipfs/${fileHash}`;
+  //       return fileUrl;
+  //     } catch (error) {
+  //       console.error("Unable to upload file to Pinata:", error);
+  //       throw new Error("Error uploading file to Pinata");
+  //     }
+  //   }
+  // };
+
+  // const uploadToPinata = async (file) => {
+  //   if (file && file.type === "application/pdf") {
+  //     try {
+  //       const formData = new FormData();
+  //       formData.append("file", file);
+  
+  //       const response = await axios({
+  //         method: "post",
+  //         url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+  //         data: formData,
+  //         headers: {
+  //           pinata_api_key: '27ded70bfa5dc92743ae',
+  //           pinata_secret_api_key: 'b6c80d29efcadbaaba60e1380bd23af0b4b8b982e94a32b09186b4f698a1099c',
+  //           "Content-Type": "multipart/form-data",
+  //         },
+  //       });
+  
+  //       const fileHash = response.data.IpfsHash;
+  //       const fileUrl = `https://gateway.pinata.cloud/ipfs/${fileHash}`;
+  //       console.log("File uploaded successfully:", fileUrl);
+        
+  //       return fileUrl;
+  //     } catch (error) {
+  //       console.error("Unable to upload file to Pinata:", error);
+  //       throw new Error("Error uploading file to Pinata");
+  //     }
+  //   } else {
+  //     console.error("Invalid file or file type. Please upload a PDF file.");
+  //     throw new Error("Invalid file or file type. Please upload a PDF file.");
+  //   }
+  // };
+  const uploadToPinata = async (file) => {
+    if (!file) {
+      return null;
+    }
+  
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+  
+      const response = await axios.post(
+        "https://api.pinata.cloud/pinning/pinFileToIPFS",
+        formData,
+        {
           headers: {
             pinata_api_key: '27ded70bfa5dc92743ae',
             pinata_secret_api_key: 'b6c80d29efcadbaaba60e1380bd23af0b4b8b982e94a32b09186b4f698a1099c',
             "Content-Type": "multipart/form-data",
           },
-        });
-        const ImgHash = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
-
-        return ImgHash;
-      } catch (error) {
-        console.log("Unable to upload image to Pinata");
-      }
+        }
+      );
+  
+      const imgHash = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+      return imgHash;
+    } catch (error) {
+      console.log("Unable to upload image to Pinata:", error);
+      return null;
     }
   };
-
-
-
-  //---CREATENFT FUNCTION
-  const createNFT = async (name, price, image, description, router) => {
-    if (!name || !description || !price || !image)
-      return setError("Data Is Missing"), setOpenError(true);
-
-    const data = JSON.stringify({ name, description, image });
-
+  
+  const createNFT = async (name, price, image, description, pdfFile, router) => {
+    if (!name || !description || !price || !image || !pdfFile) {
+      setError("Data Is Missing");
+      setOpenError(true);
+      return;
+    }
+  
     try {
-      const response = await axios({
-        method: "POST",
-        url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
-        data: data,
-        headers: {
-          pinata_api_key: '27ded70bfa5dc92743ae',
-          pinata_secret_api_key: 'b6c80d29efcadbaaba60e1380bd23af0b4b8b982e94a32b09186b4f698a1099c',
-          "Content-Type": "application/json",
-        },
-      });
-
-      const url = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
-      console.log(url);
-
-      await createSale(url, price);
+      const imageUrl = await uploadToPinata(image);
+      const pdfUrl = await uploadToPinata(pdfFile);
+  
+      const nftData = {
+        name,
+        description,
+        image: imageUrl,
+        pdfFile: pdfUrl,
+      };
+  
+      const response = await axios.post(
+        "https://api.pinata.cloud/pinning/pinJSONToIPFS",
+        JSON.stringify(nftData),
+        {
+          headers: {
+            pinata_api_key: '27ded70bfa5dc92743ae',
+            pinata_secret_api_key: 'b6c80d29efcadbaaba60e1380bd23af0b4b8b982e94a32b09186b4f698a1099c',
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+      const nftUrl = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+      console.log("NFT created successfully:", nftUrl);
+  
+      // Alte acțiuni după crearea cu succes a NFT-ului
+      await createSale(nftUrl, price);
       router.push("/searchPage");
     } catch (error) {
       setError("Error while creating NFT");
       setOpenError(true);
+      console.error("Error creating NFT:", error);
     }
   };
-
+  
+    
 
   //--- createSale FUNCTION
   const createSale = async (url, formInputPrice, isReselling, id) => {

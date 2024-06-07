@@ -1,5 +1,6 @@
 .NFTDetailsImg {
-  width: 100%;
+  width: 65%; /* Ajustat de la 80% la 60% */
+  margin: 0 auto; /* Centrăm imaginea */
 }
 
 .NFTDetailsImg_box_NFT {

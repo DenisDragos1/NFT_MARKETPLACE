@@ -90,19 +90,19 @@ const NavBar = () => {
             NFTale
           </div>
 
-          <div className={Style.navbar_container_left_box_input}>
-            <div className={Style.navbar_container_left_box_input_box}>
-              <input type="text" placeholder="Search NFT" />
-              <BsSearch onClick={() => { }} className={Style.search_icon} />
-            </div>
-          </div>
+          {/* <div className={Style.navbar_container_left_box_input}>
+            <div className={Style.navbar_container_left_box_input_box}> */}
+              {/* <input type="text" placeholder="Search NFT" /> */}
+              {/* <BsSearch onClick={() => { }} className={Style.search_icon} /> */}
+            {/* </div>
+          </div> */}
         </div>
 
         {/* //END OF LEFT SECTION */}
         <div className={Style.navbar_container_right}>
           <div className={Style.navbar_container_right_discover}>
             {/* DISCOVER MENU */}
-            <p onClick={(e) => openMenu(e)}>Discover</p>
+            {/* <p onClick={(e) => openMenu(e)}>Discover</p> */}
             {discover && (
               <div className={Style.navbar_container_right_discover_box}>
                 <Discover />
@@ -112,7 +112,7 @@ const NavBar = () => {
 
           {/* HELP CENTER MENU */}
           <div className={Style.navbar_container_right_help}>
-            <p onClick={(e) => openMenu(e)}>Help Center</p>
+            {/* <p onClick={(e) => openMenu(e)}>Help Center</p> */}
             {help && (
               <div className={Style.navbar_container_right_help_box}>
                 <HelpCenter />
@@ -145,6 +145,7 @@ const NavBar = () => {
 
           <div className={Style.navbar_container_right_profile_box}>
             <div className={Style.navbar_container_right_profile}>
+              
               <Image
                 src={images.user1}
                 alt="Profile"

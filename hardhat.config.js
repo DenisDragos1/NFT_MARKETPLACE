@@ -16,11 +16,4 @@ module.exports = {
     },
   },
 
-  //   // fuji: {
-  //   //   url: `Your URL`,
-  //   //   accounts: [
-  //   //     `0x${"Your Account"}`,
-  //   //   ],
-  //   // },
-  // },
 };

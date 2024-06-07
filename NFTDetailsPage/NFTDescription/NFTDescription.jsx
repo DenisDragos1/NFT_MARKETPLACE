@@ -38,27 +38,27 @@ const NFTDescription = ({ nft }) => {
 
   const router = useRouter();
 
-  const historyArray = [
-    images.user1,
-    images.user2,
-    images.user3,
-    images.user4,
-    images.user5,
-  ];
-  const provananceArray = [
-    images.user6,
-    images.user7,
-    images.user8,
-    images.user9,
-    images.user10,
-  ];
-  const ownerArray = [
-    images.user1,
-    images.user8,
-    images.user2,
-    images.user6,
-    images.user5,
-  ];
+  // const historyArray = [
+  //   images.user1,
+  //   images.user2,
+  //   images.user3,
+  //   images.user4,
+  //   images.user5,
+  // ];
+  // const provananceArray = [
+  //   images.user6,
+  //   images.user7,
+  //   images.user8,
+  //   images.user9,
+  //   images.user10,
+  // ];
+  // const ownerArray = [
+  //   images.user1,
+  //   images.user8,
+  //   images.user2,
+  //   images.user6,
+  //   images.user5,
+  // ];
 
   const openSocial = () => {
     if (!social) {
@@ -111,54 +111,12 @@ const NFTDescription = ({ nft }) => {
       <div className={Style.NFTDescription_box}>
         {/* //Part ONE */}
         <div className={Style.NFTDescription_box_share}>
-          <p>Virtual Worlds</p>
           <div className={Style.NFTDescription_box_share_box}>
-            <MdCloudUpload
-              className={Style.NFTDescription_box_share_box_icon}
-              onClick={() => openSocial()}
-            />
+           
 
-            {social && (
-              <div className={Style.NFTDescription_box_share_box_social}>
-                <a href="#">
-                  <TiSocialFacebook /> Facebooke
-                </a>
-                <a href="#">
-                  <TiSocialInstagram /> Instragram
-                </a>
-                <a href="#">
-                  <TiSocialLinkedin /> LinkedIn
-                </a>
-                <a href="#">
-                  <TiSocialTwitter /> Twitter
-                </a>
-                <a href="#">
-                  <TiSocialYoutube /> YouTube
-                </a>
-              </div>
-            )}
+           
 
-            <BsThreeDots
-              className={Style.NFTDescription_box_share_box_icon}
-              onClick={() => openNFTMenu()}
-            />
-
-            {NFTMenu && (
-              <div className={Style.NFTDescription_box_share_box_social}>
-                <a href="#">
-                  <BiDollar /> Change price
-                </a>
-                <a href="#">
-                  <BiTransferAlt /> Transfer
-                </a>
-                <a href="#">
-                  <MdReportProblem /> Report abouse
-                </a>
-                <a href="#">
-                  <MdOutlineDeleteSweep /> Delete item
-                </a>
-              </div>
-            )}
+           
           </div>
         </div>
         {/* //Part TWO */}
@@ -186,7 +144,7 @@ const NFTDescription = ({ nft }) => {
               </div>
             </div>
 
-            <div className={Style.NFTDescription_box_profile_box_right}>
+            {/* <div className={Style.NFTDescription_box_profile_box_right}>
               <Image
                 src={images.creatorbackground1}
                 alt="profile"
@@ -201,15 +159,15 @@ const NFTDescription = ({ nft }) => {
                   Mokeny app <MdVerified />
                 </span>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className={Style.NFTDescription_box_profile_biding}>
-            <p>
+            {/* <p>
               <MdTimer /> <span>Auction ending in:</span>
-            </p>
+            </p> */}
               
-            <div className={Style.NFTDescription_box_profile_biding_box_timer}>
+            {/* <div className={Style.NFTDescription_box_profile_biding_box_timer}>
               <div
                 className={
                   Style.NFTDescription_box_profile_biding_box_timer_item
@@ -242,7 +200,7 @@ const NFTDescription = ({ nft }) => {
                 <p>12</p>
                 <span>secs</span>
               </div>
-            </div>
+            </div> */}
 
             <div className={Style.NFTDescription_box_profile_biding_box_price}>
               <div
@@ -250,13 +208,13 @@ const NFTDescription = ({ nft }) => {
                   Style.NFTDescription_box_profile_biding_box_price_bid
                 }
               >
-                <small>Current Bid</small>
+                {/* <small>Current Bid</small> */}
                 <p>
-                  {nft.price} ETH <span>( ≈ $3,221.22)</span>
+                  {nft.price} ETH <span></span>
                 </p>
               </div>
 
-              <span>[96 in stock]</span>
+              {/* <span>[96 in stock]</span> */}
             </div>
 
             <div className={Style.NFTDescription_box_profile_biding_box_button}>
@@ -282,7 +240,7 @@ const NFTDescription = ({ nft }) => {
                 />
               )}
               
-              <Button 
+              {/* <Button 
                 icon={<FaPercentage />}
                 btnName="Make offer"
                 handleClick={() => router.push(
@@ -290,20 +248,16 @@ const NFTDescription = ({ nft }) => {
                   '/'
                 )}
                 classStyle={Style.button}
-              />
+              /> */}
             </div>
 
-            <div className={Style.NFTDescription_box_profile_biding_box_tabs}>
+            {/* <div className={Style.NFTDescription_box_profile_biding_box_tabs}>
               <button onClick={(e) => openTabs(e)}>Bid History</button>
               <button onClick={(e) => openTabs(e)}>Provanance</button>
               <button onClick={() => openOwmer()}>Owner</button>
-            </div>
+            </div> */}
 
-            {history && (
-              <div className={Style.NFTDescription_box_profile_biding_box_card}>
-                <NFTTabs dataTab={historyArray} />
-              </div>
-            )}
+            
             {provanance && (
               <div className={Style.NFTDescription_box_profile_biding_box_card}>
                 <NFTTabs dataTab={provananceArray} />

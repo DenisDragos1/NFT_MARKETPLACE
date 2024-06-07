@@ -79,7 +79,7 @@ const Filter = () => {
 
       {filter && (
         <div className={Style.filter_box_items}>
-          <div className={Style.filter_box_items_box}>
+          {/* <div className={Style.filter_box_items_box}>
             <div className={Style.filter_box_items_box_item}>
               <FaWallet /> <span>10 ETH</span>
               <AiFillCloseCircle />
@@ -94,9 +94,9 @@ const Filter = () => {
               <FaImages /> <small>Images</small>
               {image ? <AiFillCloseCircle /> : <TiTick />}
             </div>
-          </div>
+          </div> */}
 
-          <div className={Style.filter_box_items_box}>
+          {/* <div className={Style.filter_box_items_box}>
             <div
               className={Style.filter_box_items_box_item_trans}
               onClick={() => openVideo()}
@@ -104,9 +104,9 @@ const Filter = () => {
               <FaVideo /> <small>Videos</small>
               {video ? <AiFillCloseCircle /> : <TiTick />}
             </div>
-          </div>
+          </div> */}
 
-          <div className={Style.filter_box_items_box}>
+          {/* <div className={Style.filter_box_items_box}>
             <div
               className={Style.filter_box_items_box_item_trans}
               onClick={() => openMusic()}
@@ -121,7 +121,7 @@ const Filter = () => {
               <FaUserAlt /> <span>Verified</span>
               <MdVerified />
             </div>
-          </div>
+          </div> */}
         </div>
       )}
     </div>

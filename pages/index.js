@@ -20,6 +20,7 @@ import {
   Loader,
 } from "../components/componentsindex";
 import { getTopCreators } from "../TopCreators/TopCreators";
+import { SearchBar } from "../SearchPage/searchBarIndex";
 
 //IMPORTING CONTRCT DATA
 import { NFTMarketplaceContext } from "../Context/NFTMarketplaceContext";
@@ -62,7 +63,23 @@ const Home = () => {
     });
   }, []);
   
+  const onHandleSearch = (value) => {
+    const filteredNFTS = nfts.filter(({ name }) =>
+      name.toLowerCase().includes(value.toLowerCase())
+    );
 
+    if (filteredNFTS.length === 0) {
+      setNfts(nftsCopy);
+    } else {
+      setNfts(filteredNFTS);
+    }
+  };
+
+  const onClearSearch = () => {
+    if (nfts.length && nftsCopy.length) {
+      setNfts(nftsCopy);
+    }
+  };
   //CREATOR LIST
 
   const creators = getTopCreators(nfts);
@@ -70,6 +87,10 @@ const Home = () => {
 
   return (
     <div className={Style.homePage}>
+      <SearchBar
+        onHandleSearch={onHandleSearch}
+        onClearSearch={onClearSearch}
+      />
       {/* <HeroSection />
       <Service /> */}
       {/* <BigNFTSilder /> */}
@@ -90,13 +111,13 @@ const Home = () => {
         heading="Featured NFTs"
         paragraph="Discover the most outstanding NFTs in all topics of life."
       /> */}
-      <Filter />
+      {/* <Filter /> */}
       {nfts.length == 0 ? <Loader /> : <NFTCard NFTData={nfts} />}
 
-      <Title
+      {/* <Title
         heading="Browse by category"
         paragraph="Explore the NFTs in the most featured categories."
-      />
+      /> */}
       {/* <Category />
       <Subscribe />
       <Brand />
