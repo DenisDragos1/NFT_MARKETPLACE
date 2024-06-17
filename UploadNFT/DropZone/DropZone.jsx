@@ -1,48 +1,54 @@
+// DropZone.jsx
 import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import Image from "next/image";
 
-const DropZone = ({ setImage, setPdfFile, uploadToPinata }) => {
+// INTERNAL IMPORT
+import Style from "./DropZone.module.css";
+import images from "../../img";
+
+const DropZone = ({ title, heading, subHeading, setImage, uploadToPinata }) => {
   const [fileUrl, setFileUrl] = useState(null);
-  const [fileType, setFileType] = useState(null);
 
-  const onDrop = useCallback(async (acceptedFiles) => {
-    const file = acceptedFiles[0];
-    const url = await uploadToPinata(file);
-
-    if (file.type.startsWith("image/")) {
-      setFileUrl(url);
-      setImage(url);
-      setFileType("image");
-    } else if (file.type === "application/pdf") {
-      setFileUrl(url);
-      setPdfFile(url); // Utilizați setPdfFile pentru a seta URL-ul fișierului PDF
-      setFileType("pdf");
-    }
-
-    console.log(url);
-  }, [setImage, setPdfFile, uploadToPinata]);
+  const onDrop = useCallback(async (acceptedFile) => {
+    const url = await uploadToPinata(acceptedFile[0]);
+    setFileUrl(url);
+    setImage(acceptedFile[0]); // Set the actual file instead of the URL
+  }, [uploadToPinata, setImage]);
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    accept: "image/*, application/pdf",
-    maxSize: 5000000,
+    accept: "image/*,application/pdf",
+    maxSize: 104857600, // 100 MB
   });
 
   return (
-    <div>
-      <div {...getRootProps()}>
+    <div className={Style.DropZone}>
+      <div className={Style.DropZone_box} {...getRootProps()}>
         <input {...getInputProps()} />
-        <p>Drag and drop your files here, or click to select files</p>
-      </div>
-      {fileUrl && (
-        <div>
-          {fileType === "image" ? (
-            <img src={fileUrl} alt="uploaded image" style={{ width: "100%" }} />
-          ) : (
-            <embed src={fileUrl} type="application/pdf" width="100%" height="600px" />
-          )}
+        <div className={Style.DropZone_box_input}>
+          <p>{title}</p>
+          <div className={Style.DropZone_box_input_img}>
+            <Image
+              src={images.upload}
+              alt="upload"
+              width={100}
+              height={100}
+              objectFit="contain"
+              className={Style.DropZone_box_input_img_img}
+            />
+          </div>
+          <p>{heading}</p>
+          <small>{subHeading}</small>
         </div>
+      </div>
+
+      {fileUrl && (
+        <aside className={Style.DropZone_box_aside}>
+          <div className={Style.DropZone_box_aside_box}>
+            <Image src={fileUrl} alt="nft image" width={200} height={200} />
+          </div>
+        </aside>
       )}
     </div>
   );

@@ -298,6 +298,72 @@ export const NFTMarketplaceProvider = ({ children }) => {
     }
   };
   
+  // const uploadToPinata = async (file) => {
+  //   if (file) {
+  //     try {
+  //       const formData = new FormData();
+  //       formData.append("file", file);
+  
+  //       const response = await axios({
+  //         method: "post",
+  //         url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+  //         data: formData,
+  //         headers: {
+  //           pinata_api_key: `27ded70bfa5dc92743ae`,
+  //           pinata_secret_api_key: `b6c80d29efcadbaaba60e1380bd23af0b4b8b982e94a32b09186b4f698a1099c`,
+  //           "Content-Type": "multipart/form-data",
+  //         },
+  //       });
+  //       const fileHash = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+  
+  //       return fileHash;
+  //     } catch (error) {
+  //       console.log("Unable to upload file to Pinata", error);
+  //     }
+  //   }
+  // };
+  
+  // const createNFT = async (name, price, image, pdf, description, router) => {
+  //   if (!name || !description || !price || !image || !pdf)
+  //     return setError("Data Is Missing"), setOpenError(true);
+  
+  //   try {
+  //     // Upload image and PDF to Pinata
+  //     const imageHash = await uploadToPinata(image);
+  //     const pdfHash = await uploadToPinata(pdf);
+  
+  //     // Create metadata JSON with the image and PDF URLs
+  //     const data = JSON.stringify({
+  //       name,
+  //       description,
+  //       image: imageHash,
+  //       pdf: pdfHash
+  //     });
+  
+  //     // Upload metadata JSON to Pinata
+  //     const response = await axios({
+  //       method: "POST",
+  //       url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
+  //       data: data,
+  //       headers: {
+  //         pinata_api_key: `27ded70bfa5dc92743ae`,
+  //         pinata_secret_api_key: `b6c80d29efcadbaaba60e1380bd23af0b4b8b982e94a32b09186b4f698a1099c`,
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+  
+  //     const url = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+  //     console.log(url);
+  
+  //     // Create NFT sale
+  //     await createSale(url, price);
+  //     router.push("/searchPage");
+  //   } catch (error) {
+  //     setError("Error while creating NFT");
+  //     setOpenError(true);
+  //   }
+  // };
+  
     
 
   //--- createSale FUNCTION

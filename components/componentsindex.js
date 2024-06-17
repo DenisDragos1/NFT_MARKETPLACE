@@ -17,6 +17,7 @@ import Slider from "./Slider/Slider";
 import Brand from "./Brand/Brand";
 import Video from "./Video/Video";
 import Loader from "./Loader/Loader";
+import Loader1 from "./Loader1/Loader1";
 import Error from "./Error/Error";
 
 export {
@@ -39,5 +40,6 @@ export {
   Brand,
   Video,
   Loader,
+  Loader1,
   Error,
 };
