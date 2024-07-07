@@ -1,4 +1,3 @@
-// UploadNFT.jsx
 import React, { useState } from "react";
 import { MdOutlineHttp, MdOutlineAttachFile } from "react-icons/md";
 import { FaPercent } from "react-icons/fa";
@@ -22,7 +21,7 @@ const UploadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {
   const [description, setDescription] = useState("");
   const [royalties, setRoyalties] = useState("");
   const [fileSize, setFileSize] = useState("");
-  const [category, setCategory] = useState(0);
+  const [category, setCategory] = useState("");
   const [properties, setProperties] = useState("");
   const [image, setImage] = useState(null);
   const [pdf, setPdf] = useState(null); // State for PDF file
@@ -32,10 +31,14 @@ const UploadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {
   const categoryArry = [
     { image: images.nft_image_1, category: "Sports" },
     { image: images.nft_image_2, category: "Arts" },
-    { image: images.nft_image_3, category: "Music" },
-    { image: images.nft_image_1, category: "Digital" },
+    { image: images.nft_image_3, category: "Arhitecture" },
+    { image: images.nft_image_1, category: "Technology" },
     { image: images.nft_image_2, category: "Time" },
-    { image: images.nft_image_3, category: "Photography" },
+    { image: images.nft_image_3, category: "History" },
+    { image: images.nft_image_1, category: "Religion" },
+    { image: images.nft_image_2, category: "Fiction" },
+    { image: images.nft_image_3, category: "Health" },
+    { image: images.nft_image_1, category: "Other" },
   ];
 
   const handleFileChange = async (event, setFile) => {
@@ -67,7 +70,7 @@ const UploadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {
           />
         </div>
 
-        <div className={formStyle.Form_box_input}>
+        {/* <div className={formStyle.Form_box_input}>
           <label htmlFor="website">Website</label>
           <div className={formStyle.Form_box_input_box}>
             <div className={formStyle.Form_box_input_box_icon}>
@@ -79,7 +82,7 @@ const UploadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {
               onChange={(e) => setWebsite(e.target.value)}
             />
           </div>
-        </div>
+        </div> */}
 
         <div className={formStyle.Form_box_input}>
           <label htmlFor="description">Description</label>
@@ -92,10 +95,10 @@ const UploadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {
         </div>
 
         <div className={formStyle.Form_box_input}>
-          <label htmlFor="category">Choose collection</label>
-          <p className={Style.upload_box_input_para}>
-            Choose an existing collection or create a new one
-          </p>
+          <label htmlFor="category">Choose a category</label>
+          {/* <p className={Style.upload_box_input_para}>
+            Choose an existing category 
+          </p> */}
           <div className={Style.upload_box_slider_div}>
             {categoryArry.map((el, i) => (
               <div
@@ -110,19 +113,19 @@ const UploadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {
               >
                 <div className={Style.upload_box_slider_box}>
                   <div className={Style.upload_box_slider_box_img}>
-                    <Image
+                    {/* <Image
                       src={el.image}
                       alt="background image"
                       width={70}
                       height={70}
                       className={Style.upload_box_slider_box_img_img}
-                    />
+                    /> */}
                   </div>
-                  <div className={Style.upload_box_slider_box_img_icon}>
+                  {/* <div className={Style.upload_box_slider_box_img_icon}>
                     <TiTick />
-                  </div>
+                  </div> */}
                 </div>
-                <p>Crypto Legend - {el.category}</p>
+                <p> {el.category}</p>
               </div>
             ))}
           </div>
@@ -140,7 +143,7 @@ const UploadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {
         </div>
 
         <div className={formStyle.Form_box_input_social}>
-          <div className={formStyle.Form_box_input}>
+          {/* <div className={formStyle.Form_box_input}>
             <label htmlFor="royalties">Royalties</label>
             <div className={formStyle.Form_box_input_box}>
               <div className={formStyle.Form_box_input_box_icon}>
@@ -166,9 +169,9 @@ const UploadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {
                 onChange={(e) => setFileSize(e.target.value)}
               />
             </div>
-          </div>
+          </div> */}
 
-          <div className={formStyle.Form_box_input}>
+          {/* <div className={formStyle.Form_box_input}>
             <label htmlFor="properties">Properties</label>
             <div className={formStyle.Form_box_input_box}>
               <div className={formStyle.Form_box_input_box_icon}>
@@ -180,7 +183,7 @@ const UploadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {
                 onChange={(e) => setProperties(e.target.value)}
               />
             </div>
-          </div>
+          </div> */}
 
           <div className={formStyle.Form_box_input}>
             <label htmlFor="price">Price</label>
@@ -201,11 +204,11 @@ const UploadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {
           <Button
             btnName="Upload"
             handleClick={async () =>
-              createNFT(name, price, image, description, pdf, router)
+              createNFT(name, price, image, description, pdf, category, router)
             }
             classStyle={Style.upload_box_btn_style}
           />
-          <Button btnName="Preview" handleClick={() => {}} classStyle={Style.upload_box_btn_style} />
+          {/* <Button btnName="Preview" handleClick={() => {}} classStyle={Style.upload_box_btn_style} /> */}
         </div>
       </div>
     </div>

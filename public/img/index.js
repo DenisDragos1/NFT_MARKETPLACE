@@ -57,6 +57,7 @@ import loader from "./loadergif.gif";
 import errorgif from "./error.gif";
 import transfer from "./transfer.gif";
 import transferEther from "./ethereTransfer.gif";
+import loader1 from "./lodergif1.gif";
 
 export default {
   hero2,
@@ -115,6 +116,7 @@ export default {
   youtube,
   zgcmq,
   loader,
+  loader1,
   errorgif,
   transfer,
   transferEther,

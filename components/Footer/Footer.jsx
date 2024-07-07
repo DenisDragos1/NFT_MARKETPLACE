@@ -1,5 +1,4 @@
 import React from "react";
-// import Image from "next/image";
 import { DiJqueryLogo } from "react-icons/di";
 import {
   TiSocialFacebook,
@@ -18,14 +17,10 @@ import { Discover, HelpCenter } from "../NavBar/index";
 
 const Footer = () => {
   return (
-    <div className={Style.footer}>
+    <div className={Style.footer} data-testid="footer">
       <div className={Style.footer_box}>
         <div className={Style.footer_box_social}>
           {/* <Image src={images.logo} alt="footer logo" height={100} width={100} /> */}
-       
-         
-
-       
         </div>
 
         <div className={Style.footer_box_discover}>
@@ -41,7 +36,6 @@ const Footer = () => {
 
         <div className={Style.subscribe}>
           {/* <h3>Subscribe</h3> */}
-
           {/* <div className={Style.subscribe_box}>
             <input type="email" placeholder="Enter your email *" />
             <RiSendPlaneFill className={Style.subscribe_box_send} />

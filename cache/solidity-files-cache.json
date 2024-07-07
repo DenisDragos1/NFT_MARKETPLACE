@@ -37,46 +37,6 @@
         "NftAuction"
       ]
     },
-    "C:\\Users\\Denis\\Desktop\\nftmarketplace\\contracts\\NFTMarketplace.sol": {
-      "lastModificationDate": 1707891317157,
-      "contentHash": "eacee67cd19174aa22c41255f5ebf01f",
-      "sourceName": "contracts/NFTMarketplace.sol",
-      "solcConfig": {
-        "version": "0.8.17",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/utils/Counters.sol",
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
-        "hardhat/console.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "NFTMarketplace"
-      ]
-    },
     "C:\\Users\\Denis\\Desktop\\nftmarketplace\\node_modules\\hardhat\\console.sol": {
       "lastModificationDate": 1708090653649,
       "contentHash": "896f68942c3a20e9ae3c3c5bfd3add54",
@@ -694,6 +654,46 @@
         "^0.8.0"
       ],
       "artifacts": []
+    },
+    "C:\\Users\\Denis\\Desktop\\nftmarketplace\\contracts\\NFTMarketplace.sol": {
+      "lastModificationDate": 1717747558939,
+      "contentHash": "53604ef4cc00c3b343baccc84f21cf72",
+      "sourceName": "contracts/NFTMarketplace.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/utils/Counters.sol",
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "NFTMarketplace"
+      ]
     },
     "C:\\Users\\Denis\\Desktop\\nftmarketplace\\contracts\\TransferFunds.sol": {
       "lastModificationDate": 1707891317157,

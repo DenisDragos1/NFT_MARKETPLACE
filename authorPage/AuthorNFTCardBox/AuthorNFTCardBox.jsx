@@ -107,21 +107,21 @@ const AuthorNFTCardBox = ({
     <div className={Style.AuthorNFTCardBox}>
       {collectiables && <NFTCardTwo NFTData={nfts} />}
       {created && <NFTCardTwo NFTData={myNFTS} />}
-      {like && <NFTCardTwo NFTData={nfts} />}
-      {follower && (
+      {/* {like && <NFTCardTwo NFTData={nfts} />} */}
+      {/* {follower && (
         <div className={Style.AuthorNFTCardBox_box}>
           {followerArray.map((el, i) => (
             <FollowerTabCard i={i} el={el} />
           ))}
         </div>
-      )}
-      {following && (
+      )} */}
+      {/* {following && (
         <div className={Style.AuthorNFTCardBox_box}>
           {followingArray.map((el, i) => (
             <FollowerTabCard i={i} el={el} />
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 };

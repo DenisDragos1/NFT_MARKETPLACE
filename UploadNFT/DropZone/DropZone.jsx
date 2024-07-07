@@ -1,4 +1,3 @@
-// DropZone.jsx
 import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import Image from "next/image";
@@ -10,15 +9,22 @@ import images from "../../img";
 const DropZone = ({ title, heading, subHeading, setImage, uploadToPinata }) => {
   const [fileUrl, setFileUrl] = useState(null);
 
-  const onDrop = useCallback(async (acceptedFile) => {
-    const url = await uploadToPinata(acceptedFile[0]);
-    setFileUrl(url);
-    setImage(acceptedFile[0]); // Set the actual file instead of the URL
+  const onDrop = useCallback(async (acceptedFiles) => {
+    const file = acceptedFiles[0];
+    
+    // Verifică tipul de fișier
+    if (file.type.startsWith('image/')) {
+      const url = await uploadToPinata(file);
+      setFileUrl(url);
+      setImage(file); // Set the actual file instead of the URL
+    } else {
+      alert('Please upload a valid image file');
+    }
   }, [uploadToPinata, setImage]);
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    accept: "image/*,application/pdf",
+    accept: "image/*",
     maxSize: 104857600, // 100 MB
   });
 

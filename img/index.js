@@ -54,6 +54,7 @@ import founder2 from "./founder2.jpg";
 import founder3 from "./founder3.jpg";
 import founder4 from "./founder4.jpg";
 import loader from "./loadergif.gif";
+import loader1 from "./loadergif1.gif";
 import errorgif from "./error.gif";
 import transfer from "./transfer.gif";
 import transferEther from "./ethereTransfer.gif";
@@ -115,6 +116,7 @@ export default {
   youtube,
   zgcmq,
   loader,
+  loader1,
   errorgif,
   transfer,
   transferEther,

@@ -77,22 +77,22 @@ const NFTDescription = ({ nft }) => {
           </h1>
           <div className={Style.NFTDescription_box_profile_box}>
             <div className={Style.NFTDescription_box_profile_box_left}>
-              <Image
+              {/* <Image
                 src={images.user1}
                 alt="profile"
                 width={40}
                 height={40}
                 style={{ objectFit: "cover" }}
                 className={Style.NFTDescription_box_profile_box_left_img}
-              />
-              <div className={Style.NFTDescription_box_profile_box_left_info}>
+              /> */}
+              {/* <div className={Style.NFTDescription_box_profile_box_left_info}>
                 <small>Creator</small> <br />
                 <Link href={{ pathname: "/author" }}>
                   <span>
                     Karli Costa <MdVerified />
                   </span>
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className={Style.NFTDescription_box_profile_biding}>

@@ -116,15 +116,15 @@ const SideBar = ({ setOpenSideMenu, currentAccount, connectWallet }) => {
       <div className={Style.sideBar_box}>
         {/* <Image src={images.logo} alt="logo" width={150} height={150} /> */}
         <p>
-          <a href="/">
-            <DiJqueryLogo className={Style.sideBar_box_logo} />
+          <a href="/">NFTale
+            {/* <DiJqueryLogo className={Style.sideBar_box_logo} /> */}
           </a>
         </p>
-        <p>
+        {/* <p>
           Discover the most outstanding articles on all topices of NFT & write
           your own stories and share them
-        </p>
-        <div className={Style.sideBar_social}>
+        </p> */}
+        {/* <div className={Style.sideBar_social}>
           <a href="#">
             <TiSocialFacebook />
           </a>
@@ -140,17 +140,17 @@ const SideBar = ({ setOpenSideMenu, currentAccount, connectWallet }) => {
           <a href="#">
             <TiSocialInstagram />
           </a>
-        </div>
+        </div> */}
       </div>
 
       <div className={Style.sideBar_menu}>
-        <div>
+        {/* <div>
           <div
             className={Style.sideBar_menu_box}
             onClick={() => openDiscoverMenu()}
           >
-            <p>Discover</p>
-            <TiArrowSortedDown />
+            <p>Discover</p> 
+             <TiArrowSortedDown /> 
           </div>
 
           {openDiscover && (
@@ -162,9 +162,9 @@ const SideBar = ({ setOpenSideMenu, currentAccount, connectWallet }) => {
               ))}
             </div>
           )}
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
           <div
             className={Style.sideBar_menu_box}
             onClick={() => openHelpMenu()}
@@ -182,7 +182,7 @@ const SideBar = ({ setOpenSideMenu, currentAccount, connectWallet }) => {
               ))}
             </div>
           )}
-        </div>
+        </div> */}
       </div>
 
       <div className={Style.sideBar_button}>

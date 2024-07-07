@@ -7,7 +7,7 @@ const NEXT_PUBLIC_PRIVATE_KEY = "47c42ec62c8479dad6567ad2fe7743c845b7f6f67a9976b
 
 module.exports = {
   solidity: "0.8.17",
-  // defaultNetwork: "matic",
+  
   networks: {
     hardhat: {},
     sepolia: {

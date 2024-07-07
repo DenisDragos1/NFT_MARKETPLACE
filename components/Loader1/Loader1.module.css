@@ -1,11 +1,11 @@
 
 
-.Loader{
+.Loader1{
     width: 100%;
     margin-block: 4rem;
 }
 
-.Loader_box{
+.Loader1_box{
     width: 50%;
     margin: 0 auto;
     text-align: center;
@@ -21,6 +21,6 @@
     50% {transform: rotate(360deg);}
 } */
 
-.Loader_box_img_img{
+.Loader1_box_img_img{
     border-radius: 50%;
 }
