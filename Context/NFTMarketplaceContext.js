@@ -3,13 +3,11 @@ import Web3Modal from "web3modal";
 import { ethers } from "ethers";
 import { useRouter } from "next/router";
 import axios from "axios";
-// Import mongoose
-const mongoose = require('mongoose');
 
 
 //INTERNAL  IMPORT
 import {
-  NFTMarketplaceAddress,
+  NFTMarketplaceAddress, 
   NFTMarketplaceABI,
   transferFundsAddress,
   transferFundsABI,
@@ -329,7 +327,7 @@ export const NFTMarketplaceProvider = ({ children }) => {
       });
 
       await transaction.wait();
-      router.push("/author");
+      router.push("/");
     } catch (error) {
       setError("Error While buying NFT");
       setOpenError(true);

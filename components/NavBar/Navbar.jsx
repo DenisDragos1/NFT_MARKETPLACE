@@ -10,7 +10,8 @@ import { useRouter } from "next/router";
 
 //INTERNAL IMPORT
 import Style from "./NavBar.module.css";
-import { Discover, HelpCenter, Notification, Profile, SideBar } from "./index";
+import SideBar from './SideBar/SideBar';
+import { Discover, HelpCenter, Notification, Profile } from "./index";
 import { Button, Error } from "../componentsindex";
 import images from "../../img";
 

@@ -160,11 +160,17 @@ const Home = () => {
           <div className={Style1.category_dropdown}>
             <div className={Style1.filter_box}>
             <div className={Style1.filter_box_left}>
-            <button onClick={openTab} className={activeCategory === "Digital" ? Style.active : ""}>Digital</button>
-            <button onClick={openTab} className={activeCategory === "Art" ? Style.active : ""}>Art</button>
-            <button onClick={openTab} className={activeCategory === "Music" ? Style.active : ""}>Music</button>
-            <button onClick={openTab} className={activeCategory === "Sports" ? Style.active : ""}>Sports</button>
-            <button onClick={openTab} className={activeCategory === "Education" ? Style.active : ""}>Education</button>
+            <button onClick={openTab} className={activeCategory === "Sports" ? Style.active : ""}>Sport</button>
+            <button onClick={openTab} className={activeCategory === "Arts" ? Style.active : ""}>Art</button>
+            <button onClick={openTab} className={activeCategory === "Arhitecture" ? Style.active : ""}>Arhitecture</button>
+            <button onClick={openTab} className={activeCategory === "Technology" ? Style.active : ""}>Technology</button>
+            <button onClick={openTab} className={activeCategory === "Time" ? Style.active : ""}>Time</button>
+            <button onClick={openTab} className={activeCategory === "History" ? Style.active : ""}>History</button>
+            <button onClick={openTab} className={activeCategory === "Religion" ? Style.active : ""}>Religion</button>
+            <button onClick={openTab} className={activeCategory === "Fiction" ? Style.active : ""}>Fiction</button>
+            <button onClick={openTab} className={activeCategory === "Health" ? Style.active : ""}>Health</button>
+            <button onClick={openTab} className={activeCategory === "Other" ? Style.active : ""}>Other</button>
+
           </div>
           </div>
           </div>

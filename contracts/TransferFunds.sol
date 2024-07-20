@@ -19,6 +19,7 @@ contract TransferFunds {
         string message;
         uint256 timestamp;
     }
+    
 
     TransferFundsStruck[] transactions;
 
